@@ -1,0 +1,60 @@
+{
+  "Name": "FintechWebACL",
+  "Id": "dd1fde19-65e2-48ec-b217-bc6513c009ac",
+  "ARN": "arn:aws:wafv2:us-east-2:495013583310:regional/webacl/FintechWebACL/dd1fde19-65e2-48ec-b217-bc6513c009ac",
+  "DefaultAction": {
+    "Allow": {}
+  },
+  "Description": "",
+  "Rules": [
+    {
+      "Name": "AWSManagedRulesCommonRuleSet",
+      "Priority": 1,
+      "Statement": {
+        "ManagedRuleGroupStatement": {
+          "VendorName": "AWS",
+          "Name": "AWSManagedRulesCommonRuleSet"
+        }
+      },
+      "OverrideAction": {
+        "None": {}
+      },
+      "VisibilityConfig": {
+        "SampledRequestsEnabled": true,
+        "CloudWatchMetricsEnabled": true,
+        "MetricName": "AWSManagedRulesCommonRuleSet"
+      }
+    },
+    {
+      "Name": "RateLimit100",
+      "Priority": 2,
+      "Statement": {
+        "RateBasedStatement": {
+          "Limit": 100,
+          "EvaluationWindowSec": 300,
+          "AggregateKeyType": "IP"
+        }
+      },
+      "Action": {
+        "Block": {}
+      },
+      "VisibilityConfig": {
+        "SampledRequestsEnabled": true,
+        "CloudWatchMetricsEnabled": true,
+        "MetricName": "RateLimit100"
+      }
+    }
+  ],
+  "VisibilityConfig": {
+    "SampledRequestsEnabled": true,
+    "CloudWatchMetricsEnabled": true,
+    "MetricName": "FintechWebACL"
+  },
+  "Capacity": 702,
+  "ManagedByFirewallManager": false,
+  "LabelNamespace": "awswaf:495013583310:webacl:FintechWebACL:",
+  "RetrofittedByFirewallManager": false,
+  "OnSourceDDoSProtectionConfig": {
+    "ALBLowReputationMode": "ACTIVE_UNDER_DDOS"
+  }
+}

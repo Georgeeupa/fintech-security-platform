@@ -1,0 +1,16 @@
+{
+  "Comment": "GuardDuty Incident Response",
+  "StartAt": "InvokeIsolationLambda",
+  "States": {
+    "InvokeIsolationLambda": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "arn:aws:lambda:us-east-2:495013583310:function:FintechIncidentResponse",
+        "Payload.$": "$"
+      },
+      "OutputPath": "$.Payload",
+      "End": true
+    }
+  }
+}

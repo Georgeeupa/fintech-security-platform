@@ -1,0 +1,6 @@
+{
+  "detail": {
+    "severity": 8,
+    "type": "UnauthorizedAccess:EC2/SSHBruteForce"
+  }
+}

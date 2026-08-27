@@ -21,7 +21,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::495013583310:role/GitHubDeploymentRole
-          aws-region: 
+          aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Verify assumed identity
         run: aws sts get-caller-identity
